@@ -32,7 +32,6 @@ public class LongestCommonString {
         // --> left to rigth
         int jmp = 0;
         for (int i = 0; i < strOneLonger.length(); i++) {
-
             if (!strTwo.contains(help)) {
                 if (help.length() > result.length()) {
                     result = help;
@@ -45,7 +44,7 @@ public class LongestCommonString {
 
         if (result.length() > 2) {
             // the last sign in the string is to much
-            return result.substring(0, result.length() - 2);
+            return result.substring(0, result.length() - 1);
         } else {
             return "No match";
         }
