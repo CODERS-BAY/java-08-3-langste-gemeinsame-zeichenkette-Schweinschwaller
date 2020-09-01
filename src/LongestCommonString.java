@@ -5,13 +5,13 @@ public class LongestCommonString {
 
         Scanner s = new Scanner(System.in);
         System.out.print("First input: ");
-        //String strOne = s.nextLine();
+        String strOne = s.nextLine();
         System.out.print("Last input: ");
-        //String strTwo = s.nextLine();
+        String strTwo = s.nextLine();
 
         //TEST
-        String strOne = "AGTCCGTCAAAGT";
-        String strTwo = "AGTGACCCGTCAACC";
+        //String strOne = "AGTCCGTCAAAGT";
+        //String strTwo = "AGTGACCCGTCAACC";
 
         if (strOne.length() < strTwo.length()) {
             System.out.println(findLCS(strTwo.toUpperCase(), strOne.toUpperCase()));
