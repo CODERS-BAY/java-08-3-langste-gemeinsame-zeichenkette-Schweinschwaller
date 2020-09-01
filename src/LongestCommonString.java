@@ -5,13 +5,13 @@ public class LongestCommonString {
 
         Scanner s = new Scanner(System.in);
         System.out.print("First input: ");
-        String strOne = s.nextLine();
+        //String strOne = s.nextLine();
         System.out.print("Last input: ");
-        String strTwo = s.nextLine();
+        //String strTwo = s.nextLine();
 
         //TEST
-        //String strOne = "AGTCCGTCAAAGT";
-        //String strTwo = "AGTGACCCGTCAACC";
+        String strOne = "AGTCCGTCAAAGT";
+        String strTwo = "AGTGACCCGTCAACC";
 
         if (strOne.length() < strTwo.length()) {
             System.out.println(findLCS(strTwo.toUpperCase(), strOne.toUpperCase()));
@@ -29,22 +29,35 @@ public class LongestCommonString {
         String result = " ";
         String help = "";
 
-        // --> left to rigth
+        /*
         int jmp = 0;
         for (int i = 0; i < strOneLonger.length(); i++) {
             if (!strTwo.contains(help)) {
                 if (help.length() > result.length()) {
-                    result = help;
+                    result = help.substring(0, help.length() - 1);
                     help = "";
                     i = ++jmp;
                 }
             }
             help += strOneLonger.charAt(i);
         }
+        */
+
+        for (int i = 0; i < strOneLonger.length(); i++) {
+            help = "";
+            for (int j = i; j < strOneLonger.length(); j++) {
+                help += strOneLonger.charAt(j);
+                if (!strTwo.contains(help)) {
+                    if (help.length() - 1 > result.length()) {
+                        result = help.substring(0, help.length() - 1);
+                    }
+                    help = "";
+                }
+            }
+        }
 
         if (result.length() > 2) {
-            // the last sign in the string is to much
-            return result.substring(0, result.length() - 1);
+            return result;
         } else {
             return "No match";
         }
