@@ -30,13 +30,13 @@ public class LongestCommonString {
         String help = "";
 
 //Test        int testCount = 0;
-        int jmp = 0;
+        int stepForward = 0;
         for (int i = 0; i < strOneLonger.length(); i++) {
 //Test            testCount++;
             if (!strTwo.contains(help)) {
                 if (help.length() > result.length()) {
                     result = help.substring(0, help.length() - 1);
-                    i = ++jmp;
+                    i = ++stepForward;
                 }
                 help = "";
             }
