@@ -21,7 +21,6 @@ public class LongestCommonString {
     }
 
     public static String findLCS(String strOneLonger, String strTwo) {
-
         if (strOneLonger.isEmpty() || strTwo.isEmpty()) {
             return "";
         }
@@ -29,10 +28,7 @@ public class LongestCommonString {
         String result = " ";
         String help = "";
 
-//Test        int testCount = 0;
-        int stepForward = 0;
-        for (int i = 0; i < strOneLonger.length(); i++) {
-//Test            testCount++;
+        for (int i = 0, stepForward = 0; i < strOneLonger.length(); i++) {
             if (!strTwo.contains(help)) {
                 if (help.length() > result.length()) {
                     result = help.substring(0, help.length() - 1);
@@ -42,25 +38,6 @@ public class LongestCommonString {
             }
             help += strOneLonger.charAt(i);
         }
-        /*
-        for (int i = 0; i < strOneLonger.length(); i++) {
-            help = "";
-            for (int j = i; j < strOneLonger.length(); j++) {
-                testCount++;
-                help += strOneLonger.charAt(j);
-                if (!strTwo.contains(help)) {
-                    if (help.length() - 1 > result.length()) {
-                        result = help.substring(0, help.length() - 1);
-                        break;
-                    }
-                    help = "";
-                }
-            }
-            if (strOneLonger.length() - i < result.length()) {
-                break;
-            }
-        }*/
-//Test        System.out.println("\nSchleifendurchläufe: " + testCount + "\n");
 
         if (result.length() > 2) {
             return result;
